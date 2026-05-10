@@ -923,9 +923,3 @@ Engineering highlights:
 - Instrumented operational metrics and provisioned Grafana dashboards and alerts.
 - Packaged the entire system with Docker Compose for reproducible local distributed-system demos.
 - Added CI for backend tests, frontend lint/build, and Docker image validation.
-
-## License
-
-This project is provided as a portfolio and educational engineering project.
-
-Add your preferred license before publishing publicly. A common default for open-source portfolio projects is the MIT License.
