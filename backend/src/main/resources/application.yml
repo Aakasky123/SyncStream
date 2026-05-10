@@ -1,0 +1,41 @@
+spring:
+  application:
+    name: syncstream
+  datasource:
+    url: ${DATABASE_URL:jdbc:postgresql://localhost:5432/syncstream}
+    username: ${DATABASE_USERNAME:syncstream}
+    password: ${DATABASE_PASSWORD:syncstream}
+  flyway:
+    enabled: true
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    open-in-view: false
+  data:
+    redis:
+      host: ${REDIS_HOST:localhost}
+      port: ${REDIS_PORT:6379}
+
+server:
+  port: ${SERVER_PORT:8080}
+
+syncstream:
+  frontend-origin: ${FRONTEND_ORIGIN:http://localhost:3000}
+  jwt:
+    secret: ${JWT_SECRET:syncstream-dev-secret-change-me-syncstream-dev-secret-change-me}
+    access-token-minutes: ${ACCESS_TOKEN_MINUTES:20}
+  refresh-token-days: ${REFRESH_TOKEN_DAYS:14}
+  instance-id: ${INSTANCE_ID:local}
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,prometheus,metrics
+  endpoint:
+    health:
+      probes:
+        enabled: true
+  metrics:
+    tags:
+      application: syncstream
